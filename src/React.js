@@ -137,7 +137,7 @@ exports.forceUpdateWithCallback = forceUpdateWithCallback;
 function createElement(class_) {
   return function(props){
     return function(children){
-      return React.createElement.apply(React, [class_, props].concat(children));
+      return React.createElement(class_, props, children);
     };
   };
 }
