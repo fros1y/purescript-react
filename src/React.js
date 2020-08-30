@@ -137,8 +137,9 @@ exports.forceUpdateWithCallback = forceUpdateWithCallback;
 function createElement(class_) {
   return function(props){
     return function(children){
-      console.log(children.length)
-      return React.createElement(class_, props, children);
+      console.log("createElement: " + children.length)
+      return React.createElement.apply(React, [class_, props].concat(children));
+      //return React.createElement(class_, props, children);
     };
   };
 }
@@ -155,7 +156,7 @@ exports.createLeafElementImpl = createLeafElement;
 function createElementDynamic(class_) {
   return function(props) {
     return function(children){
-      console.log(children.length)
+      console.log("createElementDynamic: " + children.length)
       return React.createElement(class_, props, children);
     };
   };
