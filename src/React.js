@@ -154,6 +154,7 @@ exports.createLeafElementImpl = createLeafElement;
 function createElementDynamic(class_) {
   return function(props) {
     return function(children){
+      console.log(children.length)
       return React.createElement(class_, props, children);
     };
   };
